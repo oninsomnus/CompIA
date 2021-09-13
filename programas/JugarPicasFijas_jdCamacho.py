@@ -18,7 +18,10 @@ import FuncionesPicasFijas_jdCamacho as juego
 
 #entrada = juego.inputUser(entrada)
 
-entrada = juego.inputUser(input("Bienvenido al juego Picas y Fijas!\nPor favor ingresa un número\n"))
+entrada = juego.inputUser(input("Bienvenido al juego Picas y Fijas!\nPor favor ingresa 4 números\n"))
+
+while entrada == False:
+    entrada = juego.inputUser(input())
 
 secret = juego.secret()
 
@@ -35,14 +38,16 @@ secret = juego.secret()
 
 fijas = juego.fijas(secret, entrada)
 picas = juego.picas(secret, entrada)
+jugadas = 1
 
 while fijas.count(True) != 4:
     print("Fijas: {}\nPicas: {}".format(fijas.count(True), picas.count(True)))
     entrada = juego.inputUser(input("Debes adivinar las 4 fijas\nVuelve a intentarlo\n"))
     fijas = juego.fijas(secret, entrada)
     picas = juego.picas(secret, entrada)
+    jugadas += 1
 
-print("Felicitaciones! Adivinaste el número secreto: {}".format(''.join(map(str, secret))))
+print("Felicitaciones! Adivinaste el número secreto: {} en {} intentos".format(''.join(map(str, secret)), jugadas))
 
 # ----------------------------------------------------------------------------------------
 # end.

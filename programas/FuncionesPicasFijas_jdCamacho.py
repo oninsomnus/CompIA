@@ -84,9 +84,11 @@ def picas(secret, jugada):
 def inputUser(entrada):
     b = []
 
+    if ' ' in entrada:
+        entrada = entrada.replace(' ', '')
     if (len(entrada) != 4):
         print("Por favor ingresa 4 números")
-        return
+        return False
     else:
         entrada = [char for char in entrada]
         try:
