@@ -32,7 +32,7 @@ except:
 # ----------------------------------------------------------------------------------------
 # listar aqui los parámetros
 
-for i in range(1, a):
+for i in range(0, a):
     secuencia.append(b)
     d = b + c
     b = c
