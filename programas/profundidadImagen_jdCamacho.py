@@ -42,8 +42,8 @@ y = int(input("Posición inicial en Y de la esfera:  "))
 def instanciarMatriz(f, c):
     matriz = np.zeros((f, c)) # se inicializa una matriz de 0s
 
-    for i in range(1, len(matriz)-1):
-        for j in range(1, len(matriz[i])-1):
+    for i in range(1, len(matriz)-1): # se itera sobre las filas que no sean la primera ni la ultima
+        for j in range(1, len(matriz[i])-1): # se itera sobre las columnas que no sean la primera ni la ultima
             valor = random.randrange(5, 30) # se cambian los valores dentro de la matriz
             matriz[i][j] = valor            # por un numero al azar entre 5 y 30
 
@@ -62,14 +62,14 @@ def movimientoEsfera(f, c, x, y):
             for j in range(y-1, y+2): # se iteran las columnas vecinas de la esfera
                 if matr[i][j] > index: # se evaluan los vecinos con la variable index
                     index = matr[i][j] # se sobrescribe con el resultado
-                    tempx, tempy = i, j # se guardan las coordenadas del resultado
+                    tempx, tempy = i, j # se guardan las coordenadas del resultado en variables temporales
 
-        x,y = tempx, tempy
+        x,y = tempx, tempy # se sobrescriben las variables x , y para la siguiente iteración
         if caminos[-1][0] != x or caminos[-1][1] != y: # se evalua que el valor no sea el mismo que el ultimo indice de la lista
             caminos.append([x, y])
 
     print(b.OKBLUE + "\n Matriz {0}x{1} \n {2} \n".format(f, c, matr) + b.ENDC )
-    return caminos
+    return caminos # retorna la lista con el camino recorrido por la esfera
 
 print("Movimientos de la esfera: {} ".format(movimientoEsfera(f,c,x,y)))
 
