@@ -54,7 +54,7 @@ def movimientoEsfera(f, c, x, y):
     matr = instanciarMatriz(f, c) # se instancia la matriz con la función anterior
     caminos = list() # lista que se retornará al final de la función
     caminos.append([x, y])  # se inicializa con el primer valor definido por el usuario para la esfera
-    tempx, tempy = x, y
+    tempx, tempy = x, y # se inicializan dos variables temporales
 
     for a in range(3): # se itera 3 veces (pueden ser más veces, no se definió cuantas veces debían ser)
         index = matr[x][y] # se inicializa una variable con la posicion actual para luego evaluarla
